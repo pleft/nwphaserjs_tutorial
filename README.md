@@ -26,7 +26,7 @@ Untar the archive with:
 cpi@clockworkpi:~$ tar -xvf nwjs-v0.27.6-linux-arm.tar.gz
 ```
 
-This will create a directory with all `NWjs` binaries. Inside this directory there is a `lib/` directory. Copy all the shared object files located in lib directory need to be copied to `/usr/lib` directory.
+This will create a directory with all `NWjs` binaries. Inside this directory there is a `lib/` directory. All the shared object files located in `lib/` directory need to be copied to `/usr/lib` directory.
 
 
 ```bash
