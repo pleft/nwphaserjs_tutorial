@@ -45,19 +45,19 @@ and then
 cpi@clockworkpi:~/nwjs-v0.27.6-linux-arm$ sudo apt-get install libnss3-dev
 ```
 
-To execute the `NSjs` create a shortcut in the menu:
+To execute the `NWjs` create a shortcut in the menu:
 
 ```bash
-cpi@clockworkpi:~/nwjs-v0.27.6-linux-arm$ touch /home/cpi/apps/launcher/Menu/GameShell/NSJS.sh
+cpi@clockworkpi:~/nwjs-v0.27.6-linux-arm$ touch /home/cpi/apps/launcher/Menu/GameShell/NWJS.sh
 ```
 
 give it permission to execute:
 
 ```bash
-cpi@clockworkpi:~/nwjs-v0.27.6-linux-arm$ chmod +x /home/cpi/apps/launcher/Menu/GameShell/NSJS.sh
+cpi@clockworkpi:~/nwjs-v0.27.6-linux-arm$ chmod +x /home/cpi/apps/launcher/Menu/GameShell/NWJS.sh
 ```
 
-then open the `NSJS.sh` file (with `vim` or any other editor) and insert the following line:
+then open the `NWJS.sh` file (with `vim` or any other editor) and insert the following line:
 ```
 /home/cpi/nwjs-v0.27.6-linux-arm/nw --use-gl=egl --ignore-gpu-blacklist --disable-accelerated-2d-canvas --num-raster-threads=2
 ```
