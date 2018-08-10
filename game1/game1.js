@@ -91,8 +91,8 @@ function update() {
 
     if (this.escKey.isDown)
     {
-        // nwjs related code to close the application
-        nw.App.closeAllWindows();
+        game.pendingDestroy = true;
+        window.location.replace('../index.html');
     }
 }
 
