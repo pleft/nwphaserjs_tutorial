@@ -1,5 +1,5 @@
 
-var game = new Phaser.Game(320, 240, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(318, 238, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
 
 function preload() {
 

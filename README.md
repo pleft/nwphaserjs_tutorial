@@ -64,6 +64,66 @@ then open the `NWJS.sh` file (with `vim` or any other editor) and insert the fol
 
 Reboot GameShell and an NWJS icon should appear on the menu. Selecting it should run the `nw` app.
 
+To exit the application it is needed either to switch off GameShell or kill the `nw` process id, `sudo kill -9 PID`. In the rest of the tutorial, a key shortcut will be added to close the application and return to the launcher by pressing the `menu` key on GameShell.
+
 That's all configuring `NWjs` on GameShell. The rest of this tutorial is the fun part of integrating `Phaser` game engine into `NWjs`
 
-TODO
+### Deploying a Phaser.io Game
+
+Like before, connect via `ssh` to GameShell. 
+
+Enter the directory where the `nwjs` binaries are, most probably in `nwjs-v0.27.6-linux-arm/`.
+
+```bash
+cpi@clockworkpi:~$ cd nwjs-v0.27.6-linux-arm
+```
+
+Clone this repository *inside* `nwjs-v0.27.6-linux-arm/` directory
+
+```bash
+cpi@clockworkpi:~/nwjs-v0.27.6-linux-arm$ git clone https://github.com/pleft/nwphaserjs_tutorial.git
+```
+
+This will create a directoy `nwphaserjs_tutorial/` inside `nwjs-v0.27.6-linux-arm/`. Rename this directory to `package.nw`. Doing this will allow the `nwjs` binary to pickup this repository's phaser.io code and execute it.
+
+```bash
+cpi@clockworkpi:~/nwjs-v0.27.6-linux-arm$ mv nwphaserjs_tutorial/ package.nw/
+```
+
+That's all, now selecting the `NWJS` icon on the GameShell menu will launch our little phaser.io game. To exit the game and return to GameShell launcer press the `MENU` key.
+
+### Significant code parts
+
+#### Screen size 
+
+GameShell's screen is 320x240 pixels, however setting in phaser.io the playfield's size to exact match the screen's size will result to the appearance of scrollbars. So it is set 2-pixels lower, 318x238.
+
+```javascript
+var game = new Phaser.Game(318, 238, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
+```
+
+#### Key mapping
+GameShell maps its buttons to keyboard keys. This makes our lives easier and it is pretty straightforward to map GameShell's buttons to phaser.io keys
+
+* `UP = Phaser.Keyboard.UP`
+* `DOWN = Phaser.Keyboard.DOWN`
+* `LEFT = Phaser.Keyboard.LEFT`
+* `RIGHT = Phaser.Keyboard.RIGHT`
+* `A = Phaser.Keyboard.J`
+* `B = Phaser.Keyboard.K`
+* `X = Phaser.Keyboard.U`
+* `Y = Phaser.Keyboard.I`
+* `MENU = Phaser.Keyboard.ESC`
+* `START = Phaser.Keyboard.ENTER`
+* `SELECT = Phaser.Keyboard.SPACEBAR`
+
+#### Exiting the application
+To exit the application and return to the GameShell's launcher, `nwjs` command: `closeAllWindows()` should be called. Mapping this command to the `MENU` key is done as:
+
+```javascript
+if (this.escKey.isDown)
+{
+    // nwjs related code to close the application
+    nw.App.closeAllWindows();
+}
+```
