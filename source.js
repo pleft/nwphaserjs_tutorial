@@ -5,6 +5,7 @@ function preload() {
 
     game.load.image('phaser', 'assets/shmup-ship.png');
     game.load.image('bullet', 'assets/bullet0.png');
+    game.load.audio('sfxLazer', ['assets/lazer.wav']);
 
 }
 
@@ -12,6 +13,7 @@ var sprite;
 var bullet;
 var bullets;
 var bulletTime = 0;
+var sfxLazer;
 
 //  Left, right and space key for controls
 var upKey;
@@ -38,6 +40,8 @@ function create() {
     bullets.setAll('checkWorldBounds', true);
 
     sprite = game.add.sprite(150, 180, 'phaser');
+
+    sfxLazer = game.add.audio('sfxLazer');
 
     game.physics.enable(sprite, Phaser.Physics.ARCADE);
 	
@@ -103,6 +107,7 @@ function fireBullet () {
             bullet.reset(sprite.x + 6, sprite.y - 8);
             bullet.body.velocity.y = -300;
             bulletTime = game.time.now + 250;
+            sfxLazer.play();
         }
     }
 

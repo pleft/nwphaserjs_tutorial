@@ -9,6 +9,6 @@
         "resizable": false,
         "fullscreen": false,
         "frame": false,
-        "transparent": false
+        "transparent": true
     }
 }

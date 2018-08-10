@@ -10,7 +10,7 @@ The scope of this tutorial is to demonstrate how to setup an HTML5/JavaScript en
 
 ## Instructions
 
-### Installing NWjs on GameShell
+### Part 1: Installing NWjs on GameShell
 
 First of all connect via `ssh` to GameShell. 
 
@@ -68,7 +68,7 @@ To exit the application it is needed either to switch off GameShell or kill the 
 
 That's all configuring `NWjs` on GameShell. The rest of this tutorial is the fun part of integrating `Phaser` game engine into `NWjs`
 
-### Deploying a Phaser.io Game
+### Part 2: Deploying a Phaser.io Game
 
 Like before, connect via `ssh` to GameShell. 
 
@@ -92,7 +92,7 @@ cpi@clockworkpi:~/nwjs-v0.27.6-linux-arm$ mv nwphaserjs_tutorial/ package.nw/
 
 That's all, now selecting the `NWJS` icon on the GameShell menu will launch our little phaser.io game. To exit the game and return to GameShell launcer press the `MENU` key.
 
-### Significant code parts
+### Part 3: Significant code parts
 
 #### Screen size 
 
